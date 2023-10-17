@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/38e99fce7f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 style="display: none;">Fashion</h1>
+    <div id="fixedbar">
+        <div id="cartbutton" onclick="OpenCart()">        
+            <i id="carticon" class="fa-solid fa-cart-shopping"></i>
+            <div id="cart">
+                Cart
+            </div>
+            <div id="cartcount">
+                0
+            </div>
+        </div>       
+    </div>
+    <div id="filtercontainer">
+        <h2>Sizes:</h2>
+        <div style="display: inline-block; width: auto; height: auto;">
+            <div class="filtersize" onclick="AddSize('XS')">
+                XS
+            </div>
+            <div class="filtersize" onclick="AddSize('S')">
+                S
+            </div>
+            <div class="filtersize" onclick="AddSize('M')">
+                M
+            </div>
+            <div class="filtersize" onclick="AddSize('ML')">
+                ML
+            </div>
+            <div class="filtersize" onclick="AddSize('L')">
+                L
+            </div>
+            <div class="filtersize" onclick="AddSize('XL')">
+                XL
+            </div>
+            <div class="filtersize" onclick="AddSize('XXL')">
+                XXL
+            </div>
+        </div>
+        <br><br><br>
+        <h2>Categories:</h2>
+        <div style="display: inline-block; width: auto; height: auto;">
+            <div class="filtercategory" onclick="AddCategory('Coat')">
+                Coat
+            </div>
+            <div class="filtercategory" onclick="AddCategory('Pant')">
+                Pant
+            </div>
+            <div class="filtercategory" onclick="AddCategory('Sweat')">
+                Sweatshirt
+            </div>
+            <div class="filtercategory" onclick="AddCategory('T-shirt')">
+                T-shirt
+            </div>
+        </div>
+        <br><br><br>
+        <h2>Gender:</h2>
+        <div style="display: inline-block; width: auto; height: auto;">
+            <div class="filtergender" onclick="AddGender('men')">
+                Male
+            </div>
+            <div class="filtergender" onclick="AddGender('women')">
+                Female
+            </div>
+        </div>
+        <br><br><br>
+        <h2>Pricing:</h2>
+        <div style="display: inline-block; width: auto; height: auto; padding-left: 20px;">
+                <input id="minprice" type="text" onkeypress="return onlyNumberKey(this,event);" placeholder="min" class="pricerange"">
+                -
+                <input id="maxprice" type="text" onkeypress="return onlyNumberKey(this,event)" placeholder="max" class="pricerange">
+                <input id="freeshipping" type="checkbox" style="margin-left: 15px;">
+                Free Shipping
+        </div>
+            <br><br><br><br>
+        <div id="filterbutton" onclick="Filter()">
+            Filter
+        </div>     
+    </div>
+    <div id="productcontainer">
+    </div>
+    <div class="cartmenu" style="background-color: black; width: 100%;;z-index: 1;position: absolute;left: 0;top: 50px;opacity: 0.6; bottom: 0;">
+    </div>
+    <div id="cartmenu" class="cartmenu">
+        <div id="priceresult">
+            <h2 style="font-size: 30px;">Prices:</h2>
+            <br>
+            <hr style="border-top: 2px dashed rgb(128, 128, 128);">
+            <div class="price" id="shippingprice">
+                Shipping: $ 0
+            </div><br><br>
+            <div class="price" id="totalprice">
+                Total: $ 0
+            </div>
+            <br>
+            <button style="width: 40%; height: 5%; position: relative;left: 30%;background-color: rgb(255, 205, 6);border-radius: 3px;">Pay</button>
+            <br><br>
+        </div>
+        <div id="cartproducts">
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>SearchAllProducts()</script>
